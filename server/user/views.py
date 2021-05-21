@@ -83,7 +83,7 @@ class UpdateAbout(APIView):
             return JsonResponse({'msg': 'Something went wrong. Try again in 5 minutes'}, status=status.HTTP_400_BAD_REQUEST)
         return JsonResponse({'msg': 'Updated about section'}, status=status.HTTP_200_OK)
 
-class AddLinks(APIView):
+class AddLink(APIView):
     def post(self, request, format=None):
         user_id = request.data.get('user_id')
         link_name = request.data.get('link_name')
@@ -113,7 +113,7 @@ class GetLinks(APIView):
             return JsonResponse({'msg': 'Links not found'}, status=status.HTTP_404_NOT_FOUND)
         return JsonResponse({'msg': links}, status=status.HTTP_200_OK)
 
-class UpdateLinks(APIView):
+class UpdateLink(APIView):
     def put(self, request,format=None):
         link_id = request.data.get('id')
         link_name = request.data.get('link_name')
